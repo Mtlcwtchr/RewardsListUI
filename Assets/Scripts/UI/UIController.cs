@@ -1,11 +1,13 @@
 ﻿using System;
-using Core;
 
 namespace UI
 {
-	public class UIController : MonoBehaviourSingleton<UIController>
+	public class UIController
 	{
 		public event Action<bool> OnLockStatusChanged;
+        
+        private static UIController _instance;
+        public static UIController Instance => _instance ??= new UIController();
 
 		private bool _locked;
 		public bool Locked

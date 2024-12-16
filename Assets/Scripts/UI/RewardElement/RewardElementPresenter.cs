@@ -23,20 +23,23 @@ namespace UI.RewardElement
 		private RewardElement _model;
 
 		private Sprite _avatar;
-		
+
+		private bool _enabled = true;
 		public bool Enabled
 		{
+			get => _enabled;
 			set
 			{
-				claimButton.interactable = value;
-				buttonGo.SetActive(value);
-				claimedGo.SetActive(!value);
+				_enabled = value;
+				claimButton.interactable = _enabled;
+				buttonGo.SetActive(_enabled);
+				claimedGo.SetActive(!_enabled);
 			}
 		}
 
 		public bool Locked
 		{
-			set => claimButton.interactable = !value;
+			set => claimButton.interactable = !value && _enabled;
 		}
 		
 		private void Awake()

@@ -13,21 +13,25 @@ namespace UI
         [SerializeField] private Button button;
 
         private TimedOutRewardButton _model;
-        
+
+        private bool _enabled = true;
+
         public bool Enabled
         {
+            get => _enabled;
             set
             {
-                button.interactable = value;
-                
-                titleGo.SetActive(value);
-                timerGo.SetActive(!value);
+                _enabled = value;
+                button.interactable = _enabled;
+
+                titleGo.SetActive(_enabled);
+                timerGo.SetActive(!_enabled);
             }
         }
         
         public bool Locked
         {
-            set => button.interactable = !value;
+            set => button.interactable = !value && Enabled;
         }
 
         private void Awake()

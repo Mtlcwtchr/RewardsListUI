@@ -63,7 +63,7 @@ namespace Rewards
 
 		private async Task Flush()
 		{
-			await Task.Delay(500);
+			await Task.Delay(500); // Imitate api request
 			StreamWriter writer = null;
 			try
 			{
