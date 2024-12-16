@@ -53,7 +53,7 @@ namespace Rewards
 			catch (Exception e)
 			{
 				Debug.LogError(e);
-				throw;
+				return new List<RewardData>();
 			}
 			finally
 			{
@@ -74,7 +74,6 @@ namespace Rewards
 			catch (Exception e)
 			{
 				Debug.LogError(e);
-				throw;
 			}
 			finally
 			{
